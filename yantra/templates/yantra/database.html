@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Database</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700|Droid+Sans+Mono" rel="stylesheet">
+		<style>
+
+			h1 {
+				margin: 0;
+				margin-bottom: 0.5cm;
+				padding: 1%;
+				background: #030303;
+				background: linear-gradient(#303030 30%,#212121 60%,#000000);
+				font-family: 'Droid Serif', serif;
+				color: #f0f0f0;
+				font-weight: 700;
+			}
+			form {
+				text-align: center;
+			}
+			table {
+				text-align: left;
+				margin: 21px auto;
+				border: 0;
+				border-collapse: collapse;
+			}
+			tr {
+				margin: 0;
+				border: 0;
+				padding: 0;
+			}
+			td {
+				margin: 0;
+				border: 1px solid #000000;
+				padding: 3px 21px;
+			}
+			hr {
+				color: #010101;
+				size: 2px;
+				style: solid;
+			}
+		</style>
+</head>
+
+<body>
+
+
+
+
+<script>
+var a={{p_i}}
+a.sort()
+{{p_i}} = a
+window.alert({{p_i}})
+</script>
+
+<a href='https://project-homeyantra.herokuapp.com/'>  Go Back </a></br>
+<a href='https://project-homeyantra.herokuapp.com/admin/'>  link to admin site </a> </br>
+
+<table border="1" id='tbl'>
+	<tr>
+		<td>PRODUCT ID</td>
+		<td>PRODUCT NAME</td>
+		<td>PRODUCT TYPE</td>
+		<td>QUANTITY</td>
+		<td ><button onclick='f1()'>PRICE</button></td>
+		<td> Image_link </td>
+  {% for r in zpd %}
+		<tr>
+      <td>{{r.0}}</td>
+      <td>{{r.1}}</td>
+      <td>{{r.2}}</td>
+      <td>{{r.3}}</td>
+      <td>{{r.4}}</td>
+      <td><a href={{r.5}}>  {{r.5}} </a></td>\
+         </tr>
+
+  {% endfor %}
+</table>
+
+
+
+<script>
+function f1() {
+    document.getElementById('tbl').innerHTML = "	<tr>\
+		<td>PRODUCT ID</td>\
+		<td>PRODUCT NAME</td>\
+		<td>PRODUCT TYPE</td>\
+		<td>QUANTITY</td>\
+		<td ><button onclick='f2()'>PRICE</button></td>\
+		<td> Image_link </td>\
+  {% for r in zpd_p %}\
+		<tr>\
+      <td>{{r.0}}</td>\
+      <td>{{r.1}}</td>\
+      <td>{{r.2}}</td>\
+      <td>{{r.3}}</td>\
+      <td>{{r.4}}</td>\
+      <td><a href={{r.5}}>  {{r.5}} </a></td>\
+         </tr>\
+\
+  {% endfor %}";
+}
+
+function f2() {
+    document.getElementById('tbl').innerHTML = "	<tr>\
+		<td>PRODUCT ID</td>\
+		<td>PRODUCT NAME</td>\
+		<td>PRODUCT TYPE</td>\
+		<td>QUANTITY</td>\
+		<td ><button onclick='f1()'>PRICE</button></td>\
+		<td> Image_link </td>\
+  {% for r in zpd_rp %}\
+		<tr>\
+      <td>{{r.0}}</td>\
+      <td>{{r.1}}</td>\
+      <td>{{r.2}}</td>\
+      <td>{{r.3}}</td>\
+      <td>{{r.4}}</td>\
+      <td><a href={{r.5}}>  {{r.5}} </a></td>\
+         </tr>\
+\
+  {% endfor %}";
+}
+
+
+</script>
+
+
+
+
+</body>
+</html>
